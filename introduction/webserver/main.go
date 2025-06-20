@@ -5,11 +5,15 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/hello", func(writer http.ResponseWriter, request *http.Request) {
-		writer.Write([]byte("hello world!"))
-	})
+	http.HandleFunc("/hello", hello).Methods("GET")
+	
 
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
 }
+func hello (w http.ResponseWriter, r *http.Request){
+	fmt.Println("might this will be better")
+	
+}
+	
